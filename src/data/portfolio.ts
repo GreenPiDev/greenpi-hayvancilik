@@ -1,0 +1,108 @@
+import type { PortfolioItem } from '../types/content'
+
+export const portfolio: PortfolioItem[] = [
+  {
+    slug: 'anadolu-ovasi-sut-ciftligi-modernizasyonu',
+    title: 'Anadolu Ovası Süt Çiftliği Modernizasyonu',
+    category: 'Süt Üretimi',
+    image: '/images/agrezen/service-5.webp',
+    gallery: ['/images/agrezen/service-5.webp'],
+    client: 'Anadolu Ovası Çiftlikleri',
+    date: '2025',
+    description: [
+      'Geleneksel süt üretim tesisinin modern sağım ve soğutma sistemleriyle yeniden yapılandırılması.',
+      'Proje sonunda süt verimi ve kalitesinde belirgin bir artış sağlandı.',
+    ],
+  },
+  {
+    slug: 'karadeniz-yaylasi-dogal-otlatma-projesi',
+    title: 'Karadeniz Yaylası Doğal Otlatma Projesi',
+    category: 'Mera Yönetimi',
+    image: '/images/agrezen/service-6.webp',
+    gallery: ['/images/agrezen/service-6.webp'],
+    client: 'Karadeniz Yayla Kooperatifi',
+    date: '2025',
+    description: [
+      'Yayla meralarında rotasyonlu otlatma sistemi kurularak toprak verimliliği korundu.',
+      'Yerel üreticilerle birlikte sürdürülebilir bir otlatma takvimi oluşturuldu.',
+    ],
+  },
+  {
+    slug: 'ege-bolgesi-damizlik-suru-gelistirme',
+    title: 'Ege Bölgesi Damızlık Sürü Geliştirme',
+    category: 'Damızlık',
+    image: '/images/agrezen/service-7.webp',
+    gallery: ['/images/agrezen/service-7.webp'],
+    client: 'Ege Damızlık Birliği',
+    date: '2024',
+    description: [
+      'Genetik seçilim programıyla yüksek verimli damızlık hatları oluşturuldu.',
+      'Sürü sağlığı takip sistemleriyle nesiller arası performans izlendi.',
+    ],
+  },
+  {
+    slug: 'trakya-besi-ciftligi-donusumu',
+    title: 'Trakya Besi Çiftliği Dönüşümü',
+    category: 'Besicilik',
+    image: '/images/agrezen/service-8.webp',
+    gallery: ['/images/agrezen/service-8.webp'],
+    client: 'Trakya Besi Tesisleri',
+    date: '2024',
+    description: [
+      'Besi tesisinin yem formülasyonları yeniden düzenlenerek verim artışı sağlandı.',
+      'Barınak koşulları hayvan refahı standartlarına uygun şekilde iyileştirildi.',
+    ],
+  },
+  {
+    slug: 'ic-anadolu-surdurulebilir-besicilik-projesi',
+    title: 'İç Anadolu Sürdürülebilir Besicilik Projesi',
+    category: 'Sürdürülebilirlik',
+    image: '/images/agrezen/post-5.webp',
+    gallery: ['/images/agrezen/post-5.webp'],
+    client: 'İç Anadolu Tarım Kooperatifi',
+    date: '2024',
+    description: [
+      'Su kullanımını azaltan sulama ve yem üretim sistemleri devreye alındı.',
+      'Enerji verimliliği yüksek barınak tasarımlarıyla işletme giderleri düşürüldü.',
+    ],
+  },
+  {
+    slug: 'akdeniz-kiyi-ciftligi-saglik-programi',
+    title: 'Akdeniz Kıyı Çiftliği Sağlık Programı',
+    category: 'Hayvan Sağlığı',
+    image: '/images/agrezen/post-6.webp',
+    gallery: ['/images/agrezen/post-6.webp'],
+    client: 'Akdeniz Kıyı Çiftlikleri',
+    date: '2023',
+    description: [
+      'Düzenli veteriner kontrolleri ve aşı programlarıyla sürü hastalık oranı düşürüldü.',
+      'Erken teşhis sistemleri sayesinde tedavi maliyetleri azaldı.',
+    ],
+  },
+  {
+    slug: 'dogu-anadolu-mera-islahi-girisimi',
+    title: 'Doğu Anadolu Mera Islahı Girişimi',
+    category: 'Mera Yönetimi',
+    image: '/images/agrezen/post-7.webp',
+    gallery: ['/images/agrezen/post-7.webp'],
+    client: 'Doğu Anadolu Tarım Birliği',
+    date: '2023',
+    description: [
+      'Bozulmuş mera alanlarının ıslahı için yerel bitki türleriyle yeniden ekim yapıldı.',
+      'Uzun vadeli mera izleme planı üreticilerle birlikte hazırlandı.',
+    ],
+  },
+  {
+    slug: 'marmara-bolgesi-dijital-ciftlik-entegrasyonu',
+    title: 'Marmara Bölgesi Dijital Çiftlik Entegrasyonu',
+    category: 'Dijital Dönüşüm',
+    image: '/images/agrezen/post-8.webp',
+    gallery: ['/images/agrezen/post-8.webp'],
+    client: 'Marmara Çiftlik Grubu',
+    date: '2023',
+    description: [
+      'Sürü takip sensörleri ve merkezi yönetim paneli tüm tesislere entegre edildi.',
+      'Gerçek zamanlı veri akışı sayesinde operasyonel kararlar hızlandı.',
+    ],
+  },
+]

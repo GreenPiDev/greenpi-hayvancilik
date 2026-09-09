@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Nunito Sans', sans-serif;
+  --font-heading: 'Instrument Sans', sans-serif;
+
+  --color-primary: #90c52d;
+  --color-primary-dark: #768653;
+  --color-secondary: #dce25a;
+  --color-accent: #949366;
+  --color-accent-yellow: #ffc400;
+
+  --color-dark: #051b05;
+  --color-dark-2: #181818;
+  --color-dark-3: #121212;
+
+  --color-cream: #faf7f0;
+  --color-light: #f5f5f5;
+  --color-light-2: #e7ebe3;
+
+  --color-body: #4e4e4e;
+  --color-muted: #797979;
+  --color-line: #e5ebea;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    background: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    margin: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}

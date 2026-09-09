@@ -1,0 +1,108 @@
+import type { BlogPost } from '../types/content'
+
+export const blog: BlogPost[] = [
+  {
+    slug: 'ciftlik-teknolojileri-verimi-nasil-degistiriyor',
+    title: 'Çiftlik Teknolojileri Verimi Nasıl Değiştiriyor?',
+    excerpt: 'Sensörler ve veri analitiği modern hayvancılıkta verimliliği yeni bir seviyeye taşıyor.',
+    body: [
+      'Akıllı sensörler, sürü sağlığını gerçek zamanlı izleyerek üreticilere önemli bir avantaj sağlıyor.',
+      'Veri odaklı beslenme ve sağlık takibi, hem verimi artırıyor hem de maliyetleri düşürüyor.',
+    ],
+    coverImage: '/images/agrezen/post-5.webp',
+    author: 'Mehmet Kaya',
+    date: '2026-02-10',
+    tags: ['Teknoloji', 'Verimlilik'],
+  },
+  {
+    slug: 'mera-sagligi-ve-suru-verimliligi',
+    title: 'Mera Sağlığı ve Sürü Verimliliği Arasındaki İlişki',
+    excerpt: 'Sağlıklı meralar, sürü performansının en önemli belirleyicilerinden biridir.',
+    body: [
+      'Mera toprağının besin değeri, otlayan hayvanların büyüme ve süt verimini doğrudan etkiler.',
+      'Düzenli toprak analizleri ve rotasyonlu otlatma, mera sağlığını uzun vadede korur.',
+    ],
+    coverImage: '/images/agrezen/post-6.webp',
+    author: 'Can Öztürk',
+    date: '2026-01-28',
+    tags: ['Mera Yönetimi', 'Verimlilik'],
+  },
+  {
+    slug: 'organik-hayvancilik-dogannin-en-buyuk-dostu',
+    title: 'Organik Hayvancılık: Doğanın En Büyük Dostu',
+    excerpt: 'Organik üretim yöntemleri hem hayvan sağlığını hem de çevreyi koruyor.',
+    body: [
+      'Katkısız beslenme ve doğal barınma koşulları, hayvan refahını artıran temel unsurlardır.',
+      'Organik hayvancılık, toprak ve su kaynaklarının korunmasına da katkı sağlar.',
+    ],
+    coverImage: '/images/agrezen/post-7.webp',
+    author: 'Elif Demir',
+    date: '2026-01-15',
+    tags: ['Organik', 'Sürdürülebilirlik'],
+  },
+  {
+    slug: 'dogayla-uyumlu-hayvancilik-vaka-calismalari',
+    title: 'Doğayla Uyumlu Hayvancılık: Vaka Çalışmaları',
+    excerpt: 'Farklı bölgelerdeki çiftliklerimizden doğayla uyumlu üretim örnekleri.',
+    body: [
+      'Karadeniz ve Doğu Anadolu\'daki projelerimiz, doğal döngüyü koruyan üretim modellerini örnekliyor.',
+      'Bu projelerde elde edilen sonuçlar, sürdürülebilir hayvancılığın mümkün olduğunu gösteriyor.',
+    ],
+    coverImage: '/images/agrezen/post-8.webp',
+    author: 'Zeynep Arslan',
+    date: '2025-12-20',
+    tags: ['Vaka Çalışması', 'Sürdürülebilirlik'],
+  },
+  {
+    slug: 'mera-rotasyonunun-toprak-ve-otlak-yenilenmesindeki-rolu',
+    title: 'Mera Rotasyonunun Toprak ve Otlak Yenilenmesindeki Rolü',
+    excerpt: 'Rotasyonlu otlatma, mera topraklarının kendini yenilemesine olanak tanır.',
+    body: [
+      'Sürekli otlatılan alanlarda toprak verimliliği zamanla düşer; rotasyon bu döngüyü tersine çevirir.',
+      'Planlı dinlenme süreleri, bitki örtüsünün ve toprak mikroorganizmalarının toparlanmasını sağlar.',
+    ],
+    coverImage: '/images/agrezen/service-5.webp',
+    author: 'Mehmet Kaya',
+    date: '2025-12-05',
+    tags: ['Mera Yönetimi'],
+  },
+  {
+    slug: 'daha-yuksek-verim-icin-toprak-ve-mera-sagligini-anlamak',
+    title: 'Daha Yüksek Verim İçin Toprak ve Mera Sağlığını Anlamak',
+    excerpt: 'Toprak analiziyle başlayan doğru mera yönetimi, uzun vadeli verimi belirler.',
+    body: [
+      'Toprak pH değeri ve besin içeriği, mera bitkilerinin kalitesini doğrudan etkiler.',
+      'Düzenli analizlerle desteklenen gübreleme planları, verimi sürdürülebilir şekilde artırır.',
+    ],
+    coverImage: '/images/agrezen/service-6.webp',
+    author: 'Ayşe Çelik',
+    date: '2025-11-22',
+    tags: ['Mera Yönetimi', 'Verimlilik'],
+  },
+  {
+    slug: 'tarim-teknolojisi-hayvancilikta-devrim-yaratiyor',
+    title: 'Tarım Teknolojisi Hayvancılıkta Devrim Yaratıyor',
+    excerpt: 'Dijital çözümler, geleneksel hayvancılık uygulamalarını dönüştürüyor.',
+    body: [
+      'Mobil uygulamalar ve sensör ağları, çiftlik yönetimini çok daha erişilebilir kılıyor.',
+      'Bu teknolojiler sayesinde küçük ölçekli üreticiler de büyük ölçekli verimlilik kazanımları sağlayabiliyor.',
+    ],
+    coverImage: '/images/agrezen/service-7.webp',
+    author: 'Can Öztürk',
+    date: '2025-11-08',
+    tags: ['Teknoloji'],
+  },
+  {
+    slug: 'organik-yem-yonetiminde-yenilikler',
+    title: 'Organik Yem Yönetiminde Yenilikler',
+    excerpt: 'Yerel kaynaklardan üretilen dengeli yem formülasyonları sürü sağlığını destekliyor.',
+    body: [
+      'Yerel tarım ürünlerinden elde edilen yem hammaddeleri, taşıma maliyetlerini ve karbon ayak izini azaltıyor.',
+      'Besin değeri optimize edilmiş yem karışımları, hem verimi artırıyor hem de hayvan sağlığını koruyor.',
+    ],
+    coverImage: '/images/agrezen/service-8.webp',
+    author: 'Elif Demir',
+    date: '2025-10-30',
+    tags: ['Yem Üretimi', 'Organik'],
+  },
+]
