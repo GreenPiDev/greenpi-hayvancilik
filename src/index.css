@@ -36,6 +36,11 @@
     background: #ffffff;
   }
 
+  ::selection {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
   h1,
   h2,
   h3,
@@ -59,4 +64,17 @@
 
 .animate-marquee {
   animation: marquee 28s linear infinite;
+}
+
+@keyframes spin-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@utility animate-spin-y {
+  animation: spin-y 0.9s linear infinite;
 }

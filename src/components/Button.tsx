@@ -6,6 +6,8 @@ interface ButtonProps {
   href?: string
   onClick?: () => void
   variant?: 'primary' | 'outline' | 'dark'
+  pill?: boolean
+  arrow?: boolean
   children: ReactNode
   className?: string
 }
@@ -30,14 +32,25 @@ function ArrowIcon() {
   )
 }
 
-export function Button({ to, href, onClick, variant = 'primary', children, className = '' }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-[15px] px-7 py-3 text-sm font-semibold transition-colors duration-300 ${variants[variant]} ${className}`
+export function Button({
+  to,
+  href,
+  onClick,
+  variant = 'primary',
+  pill = false,
+  arrow = !pill,
+  children,
+  className = '',
+}: ButtonProps) {
+  const classes = `inline-flex items-center justify-center gap-2 whitespace-nowrap px-7 py-3 text-sm font-semibold transition-colors duration-300 ${
+    pill ? 'rounded-full' : 'rounded-[15px]'
+  } ${variants[variant]} ${className}`
 
   if (to) {
     return (
       <Link to={to} className={classes}>
         {children}
-        <ArrowIcon />
+        {arrow && <ArrowIcon />}
       </Link>
     )
   }
@@ -46,7 +59,7 @@ export function Button({ to, href, onClick, variant = 'primary', children, class
     return (
       <a href={href} className={classes}>
         {children}
-        <ArrowIcon />
+        {arrow && <ArrowIcon />}
       </a>
     )
   }
@@ -54,7 +67,7 @@ export function Button({ to, href, onClick, variant = 'primary', children, class
   return (
     <button type="button" onClick={onClick} className={classes}>
       {children}
-      <ArrowIcon />
+      {arrow && <ArrowIcon />}
     </button>
   )
 }

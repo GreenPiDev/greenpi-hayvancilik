@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import type { ReactNode } from 'react'
 import { Button } from '../components/Button'
 import { site } from '../data/site'
 
@@ -13,15 +14,30 @@ interface HeroProps {
 }
 
 const heroBadges = [
-  { label: 'Sağlıklı Sürü Yönetimi', icon: 'leaf' as const },
-  { label: 'Doğal Süt Üretimi', icon: 'drop' as const },
+  { label: 'Sağlıklı Sürü Yönetimi', icon: 'leaf' as const, image: '/icons/cow-icon.png' },
+  { label: 'Doğal Süt Üretimi', icon: 'drop' as const, image: '/icons/milk-bottle-icon.png' },
   { label: 'Teknoloji Destekli Takip', icon: 'chip' as const },
 ]
 
-function BadgeIcon({ icon }: { icon: 'leaf' | 'drop' | 'chip' }) {
+function BadgeVisual({ badge, size }: { badge: (typeof heroBadges)[number]; size: number }) {
+  if (badge.image) {
+    const imageSize = size * 1.7
+    return (
+      <img
+        src={badge.image}
+        alt=""
+        className="object-contain"
+        style={{ width: imageSize, height: imageSize }}
+      />
+    )
+  }
+  return <BadgeIcon icon={badge.icon} size={size} />
+}
+
+function BadgeIcon({ icon, size = 22 }: { icon: 'leaf' | 'drop' | 'chip'; size?: number }) {
   if (icon === 'leaf') {
     return (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
         <path
           d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14Z"
           stroke="currentColor"
@@ -34,7 +50,7 @@ function BadgeIcon({ icon }: { icon: 'leaf' | 'drop' | 'chip' }) {
   }
   if (icon === 'drop') {
     return (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
         <path
           d="M12 3s6 6.5 6 11a6 6 0 1 1-12 0c0-4.5 6-11 6-11Z"
           stroke="currentColor"
@@ -45,7 +61,7 @@ function BadgeIcon({ icon }: { icon: 'leaf' | 'drop' | 'chip' }) {
     )
   }
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <rect x="6" y="6" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.6" />
       <path
         d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"
@@ -54,6 +70,44 @@ function BadgeIcon({ icon }: { icon: 'leaf' | 'drop' | 'chip' }) {
         strokeLinecap="round"
       />
     </svg>
+  )
+}
+
+function ScallopBadge({ children, size = 80 }: { children: ReactNode; size?: number }) {
+  const petalCount = 10
+  const petalSize = size * 0.32
+  const centerSize = size * 0.8
+  const radius = size / 2 - petalSize / 2
+
+  return (
+    <span
+      className="group relative inline-flex shrink-0 cursor-pointer items-center justify-center"
+      style={{ width: size, height: size, perspective: 400 }}
+    >
+      <span
+        className="absolute inset-0 flex items-center justify-center group-hover:animate-spin-y"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {Array.from({ length: petalCount }).map((_, i) => (
+          <span
+            key={i}
+            className="absolute rounded-full bg-primary"
+            style={{
+              width: petalSize,
+              height: petalSize,
+              top: '50%',
+              left: '50%',
+              transform: `translate(-50%, -50%) rotate(${(360 / petalCount) * i}deg) translateY(-${radius}px)`,
+            }}
+          />
+        ))}
+        <span
+          className="absolute rounded-full bg-primary"
+          style={{ width: centerSize, height: centerSize, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+        />
+        <span className="relative z-10 text-white">{children}</span>
+      </span>
+    </span>
   )
 }
 
@@ -73,26 +127,24 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-1-intro-3.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark from-40% via-dark/90 to-dark/50" />
+        <div className="absolute inset-0 bg-primary/20" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-20 md:pt-28">
+        <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 py-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="max-w-2xl"
           >
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-secondary">
-              <EyebrowLeaf />
-              {eyebrow}
-            </span>
             <h1 className="text-4xl font-semibold leading-[1.1] text-white md:text-6xl">{title}</h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75">
               {description ?? site.description}
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <Button to="/service">Hizmetlerimiz</Button>
-              <Button to="/contact-us" variant="outline" className="border-white/30 text-white hover:bg-white hover:text-dark">
+              <Button to="/service" arrow={false}>
+                Hizmetlerimiz
+              </Button>
+              <Button to="/contact-us" arrow={false}>
                 İletişime Geçin
               </Button>
             </div>
@@ -102,14 +154,33 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-20 flex flex-wrap gap-10 border-t border-white/15 pt-8 md:justify-end"
+            className="absolute inset-x-6 bottom-10 hidden flex-wrap items-end justify-center gap-8 md:flex md:inset-x-auto md:right-10 md:bottom-40 md:justify-end md:gap-10"
+          >
+            {heroBadges.map((badge, i) => (
+              <div
+                key={badge.label}
+                className={`flex flex-col items-center gap-3 text-center ${i === 1 ? '-translate-y-6' : ''}`}
+              >
+                <ScallopBadge size={i === 1 ? 88 : 72}>
+                  <BadgeVisual badge={badge} size={i === 1 ? 60 : 50} />
+                </ScallopBadge>
+                <span className="max-w-[9rem] font-heading text-sm font-medium text-white">{badge.label}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="absolute inset-x-6 bottom-10 flex flex-col gap-3 md:hidden"
           >
             {heroBadges.map((badge) => (
-              <div key={badge.label} className="flex flex-col items-center gap-3 text-center">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/25 text-primary">
-                  <BadgeIcon icon={badge.icon} />
+              <div key={badge.label} className="flex items-center gap-3">
+                <span className="text-primary">
+                  <BadgeVisual badge={badge} size={36} />
                 </span>
-                <span className="max-w-[9rem] text-sm font-semibold text-white">{badge.label}</span>
+                <span className="text-sm font-medium text-white">{badge.label}</span>
               </div>
             ))}
           </motion.div>
@@ -125,9 +196,9 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-2-intro-3.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-dark/10" />
+        <div className="absolute inset-0 bg-primary/20" />
 
-        <div className="relative mx-auto flex min-h-[560px] max-w-7xl flex-col justify-end px-6 py-16 md:py-24">
+        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 py-16 md:py-24">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,8 +230,10 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-8 flex flex-wrap gap-4"
           >
-            <Button to="/service">Hizmetlerimiz</Button>
-            <Button to="/contact-us" variant="outline" className="border-white/30 text-white hover:bg-white hover:text-dark">
+            <Button to="/service" arrow={false}>
+              Hizmetlerimiz
+            </Button>
+            <Button to="/contact-us" arrow={false}>
               İletişime Geçin
             </Button>
           </motion.div>
@@ -176,9 +249,9 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/footer-3.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-dark/60" />
+        <div className="absolute inset-0 bg-primary/20" />
 
-        <div className="relative mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
+        <div className="relative mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-28 text-center md:py-36">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -212,8 +285,10 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-8 flex justify-center gap-4"
           >
-            <Button to="/service">Hizmetlerimiz</Button>
-            <Button to="/contact-us" variant="outline" className="border-white/30 text-white hover:bg-white hover:text-dark">
+            <Button to="/service" arrow={false}>
+              Hizmetlerimiz
+            </Button>
+            <Button to="/contact-us" arrow={false}>
               İletişime Geçin
             </Button>
           </motion.div>
@@ -229,9 +304,9 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-4-intro-3-1.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark/70 via-transparent to-dark/80" />
+        <div className="absolute inset-0 bg-primary/20" />
 
-        <div className="relative mx-auto flex min-h-[600px] max-w-7xl flex-col justify-between px-6 py-10">
+        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 py-10">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -267,8 +342,10 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mt-8 flex flex-wrap gap-4"
             >
-              <Button to="/contact-us">İletişime Geçin</Button>
-              <Button to="/service" variant="outline" className="border-white/40 text-white hover:bg-white hover:text-dark">
+              <Button to="/contact-us" arrow={false}>
+                İletişime Geçin
+              </Button>
+              <Button to="/service" arrow={false}>
                 Hizmetlerimiz
               </Button>
             </motion.div>
@@ -284,9 +361,9 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
         className="absolute inset-0 bg-cover bg-center opacity-50"
         style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-landing-2.webp'}')` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-dark/60 via-dark/70 to-dark" />
+      <div className="absolute inset-0 bg-primary/20" />
 
-      <div className="relative mx-auto max-w-3xl px-6 py-28 text-center md:py-32">
+      <div className="relative mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-28 text-center md:py-32">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -320,8 +397,10 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-8 flex justify-center gap-4"
         >
-          <Button to="/service">Hizmetlerimiz</Button>
-          <Button to="/contact-us" variant="outline" className="border-white/30 text-white hover:bg-white hover:text-dark">
+          <Button to="/service" arrow={false}>
+            Hizmetlerimiz
+          </Button>
+          <Button to="/contact-us" arrow={false}>
             İletişime Geçin
           </Button>
         </motion.div>

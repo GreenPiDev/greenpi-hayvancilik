@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { mainNav } from '../data/nav'
 import { site } from '../data/site'
@@ -7,11 +7,39 @@ import { Button } from './Button'
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [atTop, setAtTop] = useState(true)
+  const [hidden, setHidden] = useState(false)
+  const lastY = useRef(0)
+
+  useEffect(() => {
+    lastY.current = window.scrollY
+
+    const onScroll = () => {
+      const y = window.scrollY
+      setAtTop(y < 10)
+      setHidden(y > lastY.current && y > 100)
+      lastY.current = y
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const transparent = atTop && !mobileOpen
 
   return (
-    <header className="sticky top-0 z-50 bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5">
-        <Link to="/" className="font-heading text-2xl font-bold text-dark">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        transparent ? 'bg-transparent' : 'bg-white shadow-sm'
+      } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+    >
+      <div className="flex w-full items-center justify-between gap-6 px-6 py-5 lg:px-10">
+        <Link
+          to="/"
+          className={`font-heading text-2xl font-bold transition-colors duration-300 ${
+            transparent ? 'text-white' : 'text-dark'
+          }`}
+        >
           {site.name}
         </Link>
 
@@ -26,8 +54,12 @@ export function Header() {
               <NavLink
                 to={item.path ?? '#'}
                 className={({ isActive }) =>
-                  `flex items-center gap-1 py-2 text-[15px] font-semibold transition-colors ${
-                    isActive ? 'text-primary' : 'text-dark-2 hover:text-primary'
+                  `flex items-center gap-1 py-2 text-[15px] font-semibold transition-colors duration-300 ${
+                    isActive
+                      ? 'text-primary'
+                      : transparent
+                        ? 'text-white/90 hover:text-white'
+                        : 'text-dark-2 hover:text-primary'
                   }`
                 }
               >
@@ -57,12 +89,16 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button to="/contact-us">Bize Ulaşın</Button>
+          <Button to="/contact-us" pill>
+            Bize Ulaşın
+          </Button>
         </div>
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-line lg:hidden"
+          className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
+            transparent ? 'border-white/40 text-white' : 'border-line text-dark'
+          }`}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Menüyü aç/kapat"
         >
@@ -71,7 +107,7 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <nav className="border-t border-line px-6 py-4 lg:hidden">
+        <nav className="border-t border-line bg-white px-6 py-4 lg:hidden">
           {mainNav.map((item) => (
             <div key={item.label} className="border-b border-line py-2 last:border-none">
               <NavLink
