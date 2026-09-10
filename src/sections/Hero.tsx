@@ -19,19 +19,28 @@ const heroBadges = [
   { label: 'Teknoloji Destekli Takip', icon: 'chip' as const },
 ]
 
-function BadgeVisual({ badge, size }: { badge: (typeof heroBadges)[number]; size: number }) {
-  if (badge.image) {
-    const imageSize = size * 1.7
-    return (
-      <img
-        src={badge.image}
-        alt=""
-        className="object-contain"
-        style={{ width: imageSize, height: imageSize }}
-      />
-    )
-  }
-  return <BadgeIcon icon={badge.icon} size={size} />
+function BadgeVisual({ badge, size, box }: { badge: (typeof heroBadges)[number]; size: number; box?: number }) {
+  const visual = badge.image ? (
+    <img
+      src={badge.image}
+      alt=""
+      className={box ? 'absolute object-contain' : 'object-contain'}
+      style={{ width: size * 1.7, height: size * 1.7 }}
+    />
+  ) : (
+    <BadgeIcon icon={badge.icon} size={size} />
+  )
+
+  if (!box) return visual
+
+  return (
+    <span
+      className="relative inline-flex shrink-0 items-center justify-center"
+      style={{ width: box, height: box }}
+    >
+      {visual}
+    </span>
+  )
 }
 
 function BadgeIcon({ icon, size = 22 }: { icon: 'leaf' | 'drop' | 'chip'; size?: number }) {
@@ -124,12 +133,12 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
     return (
       <section className="relative overflow-hidden bg-dark text-white">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-1-intro-3.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-primary/20" />
+        <div className="absolute inset-0 bg-primary/10" />
 
-        <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 py-20">
+        <div className="relative mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col px-6 py-24 md:min-h-screen md:flex-row md:items-center md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -154,7 +163,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="absolute inset-x-6 bottom-10 hidden flex-wrap items-end justify-center gap-8 md:flex md:inset-x-auto md:right-10 md:bottom-40 md:justify-end md:gap-10"
+            className="hidden flex-wrap items-end justify-center gap-8 md:absolute md:inset-x-auto md:right-10 md:bottom-40 md:flex md:justify-end md:gap-10"
           >
             {heroBadges.map((badge, i) => (
               <div
@@ -173,14 +182,14 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="absolute inset-x-6 bottom-10 flex flex-col gap-3 md:hidden"
+            className="mt-auto flex flex-col gap-4 pt-10 md:hidden"
           >
             {heroBadges.map((badge) => (
               <div key={badge.label} className="flex items-center gap-3">
-                <span className="text-primary">
-                  <BadgeVisual badge={badge} size={36} />
+                <span className="text-white">
+                  <BadgeVisual badge={badge} size={16} box={24} />
                 </span>
-                <span className="text-sm font-medium text-white">{badge.label}</span>
+                <span className="text-sm font-medium leading-tight text-white">{badge.label}</span>
               </div>
             ))}
           </motion.div>
@@ -196,7 +205,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-2-intro-3.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-primary/20" />
+        <div className="absolute inset-0 bg-primary/10" />
 
         <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 py-16 md:py-24">
           <motion.span
@@ -249,7 +258,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/footer-3.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-primary/20" />
+        <div className="absolute inset-0 bg-primary/10" />
 
         <div className="relative mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-28 text-center md:py-36">
           <motion.span
@@ -304,7 +313,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-4-intro-3-1.webp'}')` }}
         />
-        <div className="absolute inset-0 bg-primary/20" />
+        <div className="absolute inset-0 bg-primary/10" />
 
         <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 py-10">
           <motion.span
@@ -361,7 +370,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
         className="absolute inset-0 bg-cover bg-center opacity-50"
         style={{ backgroundImage: `url('${image ?? '/images/agrezen/home-landing-2.webp'}')` }}
       />
-      <div className="absolute inset-0 bg-primary/20" />
+      <div className="absolute inset-0 bg-primary/10" />
 
       <div className="relative mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-28 text-center md:py-32">
         <motion.span
