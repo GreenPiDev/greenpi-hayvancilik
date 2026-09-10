@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { Container } from '../components/Container'
 
 const steps = [
@@ -10,17 +11,25 @@ const steps = [
 ]
 
 export function ParallaxProcess() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+  const x = useTransform(scrollYProgress, [0, 1], ['0vw', '70vw'])
+
   return (
-    <section className="relative overflow-hidden bg-dark py-24 text-white md:py-32">
+    <section ref={sectionRef} className="relative overflow-hidden bg-dark py-36 text-white md:py-52">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/agrezen/service-bg-3.webp')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-dark/90 via-dark/60 to-dark/90" />
-      <img
+      <motion.img
         src="/images/agrezen/shape-9.webp"
         alt=""
         aria-hidden="true"
+        style={{ x }}
         className="pointer-events-none absolute -left-10 bottom-0 hidden w-72 opacity-95 md:block lg:w-96"
       />
 
