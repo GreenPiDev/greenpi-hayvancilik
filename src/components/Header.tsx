@@ -33,14 +33,13 @@ export function Header() {
         transparent ? 'bg-transparent' : 'bg-white shadow-sm'
       } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
-      <div className="flex w-full items-center justify-between gap-6 px-6 py-5 lg:px-10">
-        <Link
-          to="/"
-          className={`font-heading text-2xl font-bold transition-colors duration-300 ${
-            transparent ? 'text-white' : 'text-dark'
-          }`}
-        >
-          {site.name}
+      <div className="flex w-full items-center justify-between gap-6 px-6 py-2 lg:px-10">
+        <Link to="/" className="group flex items-center">
+          <img
+            src={transparent ? '/header-soldaki-logo.png' : '/header-soldaki-logo-2.png'}
+            alt={site.name}
+            className="h-20 w-auto transition-transform duration-300 group-hover:scale-110"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -54,16 +53,23 @@ export function Header() {
               <NavLink
                 to={item.path ?? '#'}
                 className={({ isActive }) =>
-                  `flex items-center gap-1 py-2 text-[15px] font-semibold transition-colors duration-300 ${
+                  `group/nav flex items-center gap-1 py-2 text-[15px] font-semibold transition-colors duration-300 ${
                     isActive
                       ? 'text-primary'
                       : transparent
-                        ? 'text-white/90 hover:text-white'
-                        : 'text-dark-2 hover:text-primary'
+                        ? 'text-white/90'
+                        : 'text-forest'
                   }`
                 }
               >
-                {item.label}
+                <span className="relative inline-block">
+                  {item.label}
+                  <span
+                    className={`absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 transition-transform duration-300 ease-out group-hover/nav:scale-x-100 ${
+                      transparent ? 'bg-white' : 'bg-forest'
+                    }`}
+                  />
+                </span>
                 {item.children && <span className="text-xs">▾</span>}
               </NavLink>
 
@@ -89,7 +95,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button to="/contact-us" pill>
+          <Button to="/contact-us" pill className="!text-forest">
             Bize Ulaşın
           </Button>
         </div>
@@ -134,7 +140,7 @@ export function Header() {
             </div>
           ))}
           <div className="mt-4">
-            <Button to="/contact-us" className="w-full">
+            <Button to="/contact-us" className="w-full !text-forest">
               Bize Ulaşın
             </Button>
           </div>

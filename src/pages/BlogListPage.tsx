@@ -3,18 +3,13 @@ import { PageHeader } from '../sections/PageHeader'
 import { BlogGrid } from '../sections/BlogGrid'
 import { blog } from '../data/blog'
 
-interface BlogListPageProps {
-  columns?: 2 | 3 | 4
-  layout?: 'grid' | 'list' | 'overlay'
-}
-
-export function BlogListPage({ columns = 3, layout = 'grid' }: BlogListPageProps) {
+export function BlogListPage() {
   return (
     <div>
       <PageHeader title="Blog" breadcrumb="Blog" />
       <section className="py-20">
         <Container>
-          <BlogGrid posts={blog} columns={columns} layout={layout} />
+          <BlogGrid posts={blog} layout="overlay" />
         </Container>
       </section>
     </div>

@@ -1,5 +1,5 @@
 export const site = {
-  name: 'GreenPi Hayvancılık',
+  name: 'Green Pi Tarım',
   tagline: 'Sürdürülebilir ve Sağlıklı Hayvancılığın Adresi',
   description:
     'GreenPi Hayvancılık; süt, et ve damızlık üretiminde sürdürülebilir, teknoloji destekli ve hayvan refahını önceliklendiren bir yaklaşım sunar.',

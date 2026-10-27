@@ -55,7 +55,7 @@ export function HomeTemplate({ heroVariant, heroTitle, heroDescription, heroImag
                     description="Süt, et ve damızlık üretiminde sürdürülebilir ve verimli çözümler sunuyoruz."
                   />
                   <div className="mt-12">
-                    <ServicesGrid services={services.slice(0, 6)} columns={3} />
+                    <ServicesGrid services={services.slice(0, 6)} />
                   </div>
                 </Container>
               </section>
@@ -111,7 +111,7 @@ export function HomeTemplate({ heroVariant, heroTitle, heroDescription, heroImag
                 <Container>
                   <SectionHeading eyebrow="Blog" title="Güncel İçeriklerimiz" />
                   <div className="mt-12">
-                    <BlogGrid posts={blog.slice(0, 3)} columns={3} />
+                    <BlogGrid posts={blog.slice(0, 3)} />
                   </div>
                 </Container>
               </section>

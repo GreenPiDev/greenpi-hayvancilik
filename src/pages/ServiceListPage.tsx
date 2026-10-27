@@ -5,18 +5,16 @@ import { CTA } from '../sections/CTA'
 import { services } from '../data/services'
 
 interface ServiceListPageProps {
-  columns?: 2 | 3
-  style?: 'classic' | 'modern' | 'pro'
   breadcrumb?: string
 }
 
-export function ServiceListPage({ columns = 3, style = 'classic', breadcrumb = 'Hizmetler' }: ServiceListPageProps) {
+export function ServiceListPage({ breadcrumb = 'Hizmetler' }: ServiceListPageProps) {
   return (
     <div>
       <PageHeader title="Hizmetlerimiz" breadcrumb={breadcrumb} />
       <section className="py-20">
         <Container>
-          <ServicesGrid services={services} columns={columns} style={style} />
+          <ServicesGrid services={services} />
         </Container>
       </section>
       <CTA title="Size Özel Bir Çözüm Planı İçin" description="Uzman ekibimizle görüşün." />

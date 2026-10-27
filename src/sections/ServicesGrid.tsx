@@ -4,14 +4,6 @@ import type { Service } from '../types/content'
 
 interface ServicesGridProps {
   services: Service[]
-  columns?: 2 | 3 | 4
-  style?: 'classic' | 'modern' | 'pro'
-}
-
-const colsClass: Record<number, string> = {
-  2: 'md:grid-cols-2',
-  3: 'md:grid-cols-3',
-  4: 'md:grid-cols-2 lg:grid-cols-4',
 }
 
 const iconPaths: Record<string, string> = {
@@ -34,16 +26,14 @@ function ServiceIcon({ icon }: { icon: string }) {
   )
 }
 
-export function ServicesGrid({ services, columns = 3, style = 'classic' }: ServicesGridProps) {
+export function ServicesGrid({ services }: ServicesGridProps) {
   return (
-    <div className={`grid grid-cols-1 gap-8 ${colsClass[columns]}`}>
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
       {services.map((service, i) => (
         <Reveal key={service.slug} delay={i * 0.08}>
           <Link
             to={`/service/${service.slug}`}
-            className={`group flex h-full flex-col rounded-2xl border border-line p-8 transition-all hover:-translate-y-1 hover:shadow-xl ${
-              style === 'pro' ? 'bg-cream' : 'bg-white'
-            }`}
+            className="group flex h-full flex-col rounded-2xl border border-line bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-xl"
           >
             <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
               <ServiceIcon icon={service.icon} />
