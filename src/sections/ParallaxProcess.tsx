@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Container } from '../components/Container'
 
@@ -16,7 +16,8 @@ export function ParallaxProcess() {
     target: sectionRef,
     offset: ['start end', 'end start'],
   })
-  const x = useTransform(scrollYProgress, [0, 1], ['0vw', '70vw'])
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 25, mass: 0.5 })
+  const x = useTransform(smoothProgress, [0, 1], ['0vw', '70vw'])
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-dark py-36 text-white md:py-52">
@@ -29,7 +30,7 @@ export function ParallaxProcess() {
         src="/images/agrezen/shape-9.webp"
         alt=""
         aria-hidden="true"
-        style={{ x }}
+        style={{ x, rotate: -1.5 }}
         className="pointer-events-none absolute -left-10 bottom-0 hidden w-72 opacity-95 md:block lg:w-96"
       />
 

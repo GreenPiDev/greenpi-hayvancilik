@@ -42,6 +42,14 @@
     color: #ffffff;
   }
 
+  @media (pointer: fine) {
+    body,
+    a,
+    button {
+      cursor: none;
+    }
+  }
+
   h1,
   h2,
   h3,
