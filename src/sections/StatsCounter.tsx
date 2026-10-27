@@ -23,9 +23,9 @@ function Counter({ value }: { value: number }) {
 }
 
 const cards = [
-  { value: 97, label: 'Sürü Verimliliği', tone: 'light' as const },
-  { value: 124, label: 'Süt Verim Artışı', tone: 'primary' as const },
-  { value: 85, label: 'Çiftlik Büyümesi', tone: 'dark' as const },
+  { value: 2024, suffix: '', label: 'Kuruluş Yılı', tone: 'light' as const },
+  { value: 50, suffix: '+', label: 'Yıllık Aile Tecrübesi', tone: 'primary' as const },
+  { value: 5, suffix: '+', label: 'Saat Günlük Mera Süresi', tone: 'dark' as const },
 ]
 
 const toneClasses: Record<string, string> = {
@@ -44,10 +44,10 @@ export function StatsCounter() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14Z" stroke="currentColor" strokeWidth="1.6" />
               </svg>
-              Etkimiz
+              Rakamlarla Green Pi
             </span>
             <h2 className="text-3xl font-semibold leading-tight text-dark md:text-5xl">
-              Daha Yeşil Bir Hayvancılık İnşa Ediyoruz
+              Nesilden Nesile Aktarılan Bir Üretim Kültürü
             </h2>
           </div>
           <Button to="/contact-us">Bize Ulaşın</Button>
@@ -64,7 +64,7 @@ export function StatsCounter() {
               className={`rounded-2xl border border-line p-8 ${toneClasses[card.tone]}`}
             >
               <div className="text-5xl font-bold">
-                <Counter value={card.value} />%
+                <Counter value={card.value} />{card.suffix}
               </div>
               <p className="mt-3 text-base font-medium opacity-90">{card.label}</p>
             </motion.div>

@@ -13,7 +13,7 @@ export function ServiceDetailPage() {
 
   return (
     <div>
-      <PageHeader title={service.title} breadcrumb="Hizmetler" />
+      <PageHeader title={service.title} breadcrumb="Faaliyet Alanlarımız" />
       <section className="py-20">
         <Container className="grid gap-12 md:grid-cols-[1fr_1.2fr]">
           <Reveal direction="left">
@@ -30,7 +30,7 @@ export function ServiceDetailPage() {
           </Reveal>
         </Container>
       </section>
-      <CTA title="Bu Hizmet Hakkında Bilgi Alın" />
+      <CTA title="Bu Faaliyet Alanımız Hakkında Bilgi Alın" />
     </div>
   )
 }

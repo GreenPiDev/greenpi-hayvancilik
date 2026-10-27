@@ -4,23 +4,23 @@ import { Container } from '../components/Container'
 
 const features = [
   {
-    title: 'Çiftlik Geliştirme',
-    description: 'Modern altyapı ve planlamayla çiftlik kapasitesini güvenle büyütüyoruz.',
+    title: 'Büyükbaş Besi Hayvancılığı',
+    description: 'Yerli, melez, kültür ırkları ve Angus cinsi büyükbaş hayvanların besiciliğini yapıyoruz.',
     icon: 'farm' as const,
   },
   {
-    title: 'Sürü Yönetimi',
-    description: 'Sağlık takibi ve beslenme planlarıyla sürü verimliliğini artırıyoruz.',
+    title: 'Küçükbaş Yetiştiricilik',
+    description: 'Koyun ve kuzularımızı günlük beş saatin üzerinde doğal meralarda otlatıyoruz.',
     icon: 'herd' as const,
   },
   {
-    title: 'Mera İyileştirme',
-    description: 'Doğal döngüyü koruyan rotasyonlu otlatma sistemleri uyguluyoruz.',
+    title: 'Topraktan Hayvana Üretim',
+    description: 'Hayvanlarımızın yemini kendi arazilerimizde yetiştirip bütünleşik bir sistem kuruyoruz.',
     icon: 'soil' as const,
   },
   {
-    title: 'Organik Yetiştiricilik',
-    description: 'Katkısız, doğal beslenmeyle sağlıklı ve kaliteli üretim sağlıyoruz.',
+    title: 'Kendi Makine Parkımız',
+    description: 'Traktör ve iş makinelerimizle üretim sürecinin her aşamasını kendi kontrolümüzde yürütüyoruz.',
     icon: 'organic' as const,
   },
 ]
@@ -80,7 +80,7 @@ export function AboutIntro() {
             Hakkımızda
           </span>
           <h2 className="text-3xl font-semibold leading-tight text-dark md:text-5xl">
-            Yenilikçi Hayvancılık, Sürdürülebilir Gelecek
+            50 Yılı Aşan Aile Tecrübesi, Bütünleşik Bir Üretim Modeli
           </h2>
         </motion.div>
 
@@ -127,7 +127,7 @@ export function AboutIntro() {
             <div className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
               <p className="max-w-[14rem] text-sm font-medium leading-snug text-white">
-                Hayvan refahı ve doğal büyümeyle sürdürülebilir üretim.
+                İkinci ve üçüncü nesille sürdürdüğümüz, topraktan hayvana bütünleşik üretim.
               </p>
               <Button to="/about-us" className="shrink-0 !px-5 !py-2.5 !text-xs">
                 Hakkımızda

@@ -96,7 +96,7 @@ export function Footer() {
         <div>
           <h4 className="mb-5 flex items-center gap-2 text-base font-semibold text-white">
             <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-            Hizmetlerimiz
+            Faaliyet Alanlarımız
           </h4>
           <ul className="flex flex-col gap-3 text-sm text-white/75">
             {footerServices.map((service) => (

@@ -14,9 +14,9 @@ interface HeroProps {
 }
 
 const heroBadges = [
-  { label: 'Sağlıklı Sürü Yönetimi', icon: 'leaf' as const, image: '/icons/cow-icon.png' },
-  { label: 'Doğal Süt Üretimi', icon: 'drop' as const, image: '/icons/milk-bottle-icon.png' },
-  { label: 'Teknoloji Destekli Takip', icon: 'chip' as const },
+  { label: 'Büyükbaş Besi Hayvancılığı', icon: 'leaf' as const, image: '/icons/cow-icon.png' },
+  { label: 'Küçükbaş Hayvan Yetiştiriciliği', icon: 'drop' as const },
+  { label: 'Kendi Makine ve Ekipman Altyapımız', icon: 'chip' as const },
 ]
 
 function BadgeVisual({ badge, size, box }: { badge: (typeof heroBadges)[number]; size: number; box?: number }) {
@@ -151,7 +151,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Button to="/service" arrow={false}>
-                Hizmetlerimiz
+                Faaliyet Alanlarımız
               </Button>
               <Button to="/contact-us" arrow={false}>
                 İletişime Geçin
@@ -240,7 +240,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             className="mt-8 flex flex-wrap gap-4"
           >
             <Button to="/service" arrow={false}>
-              Hizmetlerimiz
+              Faaliyet Alanlarımız
             </Button>
             <Button to="/contact-us" arrow={false}>
               İletişime Geçin
@@ -295,7 +295,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
             className="mt-8 flex justify-center gap-4"
           >
             <Button to="/service" arrow={false}>
-              Hizmetlerimiz
+              Faaliyet Alanlarımız
             </Button>
             <Button to="/contact-us" arrow={false}>
               İletişime Geçin
@@ -355,7 +355,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
                 İletişime Geçin
               </Button>
               <Button to="/service" arrow={false}>
-                Hizmetlerimiz
+                Faaliyet Alanlarımız
               </Button>
             </motion.div>
           </div>
@@ -407,7 +407,7 @@ export function Hero({ variant = 'default', eyebrow = 'GreenPi Hayvancılık', t
           className="mt-8 flex justify-center gap-4"
         >
           <Button to="/service" arrow={false}>
-            Hizmetlerimiz
+            Faaliyet Alanlarımız
           </Button>
           <Button to="/contact-us" arrow={false}>
             İletişime Geçin

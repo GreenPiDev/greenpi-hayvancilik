@@ -15,8 +15,8 @@ export function Home() {
     <div>
       <Hero
         variant="default"
-        title="Sürdürülebilir ve Sağlıklı Hayvancılığın Adresi"
-        description="GreenPi Hayvancılık; süt, et ve damızlık üretiminde teknoloji destekli, hayvan refahını önceliklendiren bir yaklaşım sunar."
+        title="Topraktan Hayvana, Tecrübeden Geleceğe"
+        description="Green Pi Tarım ve Hayvancılık; 50 yılı aşkın aile tecrübesiyle büyükbaş besi hayvancılığı ve koyun-kuzu yetiştiriciliğinde topraktan hayvana bütünleşik bir üretim modeli yürütür."
       />
       <LogoStrip />
       <AboutIntro />
@@ -28,8 +28,8 @@ export function Home() {
       <TestimonialFeature />
       <LatestNews />
       <CTA
-        title="Çiftliğinizi Birlikte Geliştirelim"
-        description="Uzman ekibimizle tanışın, size özel bir çözüm planı oluşturalım."
+        title="Faaliyetlerimiz Hakkında Bilgi Almak İster Misiniz?"
+        description="Büyükbaş besi hayvancılığı ve küçükbaş yetiştiriciliğimiz hakkında bizimle iletişime geçin."
       />
     </div>
   )

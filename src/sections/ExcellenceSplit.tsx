@@ -4,15 +4,15 @@ import { Container } from '../components/Container'
 
 const stats = [
   {
-    value: '%92',
-    title: 'Sürü Sağlığı',
-    description: 'Düzenli veteriner kontrolleriyle sürü sağlığını güvence altına alıyoruz.',
+    value: '50+',
+    title: 'Yıl Aile Tecrübesi',
+    description: 'İkinci ve üçüncü nesil olarak sürdürdüğümüz köklü bir üretim kültürümüz var.',
     icon: 'health' as const,
   },
   {
-    value: '%88',
-    title: 'Süt Verimliliği',
-    description: 'Dengeli beslenme programlarıyla süt veriminde istikrarlı artış sağlıyoruz.',
+    value: '5+',
+    title: 'Saat Günlük Mera',
+    description: 'Koyun ve kuzularımızı sabah akşam günlük beş saatin üzerinde meraya çıkarıyoruz.',
     icon: 'yield' as const,
   },
 ]
@@ -53,14 +53,16 @@ export function ExcellenceSplit() {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14Z" stroke="currentColor" strokeWidth="1.6" />
             </svg>
-            Sürdürülebilir Üretim
+            Biz Kimiz?
           </span>
           <h2 className="text-3xl font-semibold leading-tight text-dark md:text-5xl">
-            Her Çiftlikte Mükemmelliği Büyütmek
+            Tarımı ve Hayvancılığı Aynı Üretim Sisteminde Buluşturuyoruz
           </h2>
           <p className="mt-6 max-w-md text-body">
-            GreenPi Hayvancılık olarak sürü sağlığından süt verimliliğine kadar her aşamada
-            teknoloji destekli, hayvan refahını önceliklendiren bir yaklaşım benimsiyoruz.
+            Green Pi Tarım ve Hayvancılık; tarım, büyükbaş besicilik ve küçükbaş hayvan
+            yetiştiriciliğini aynı üretim sistemi içinde bir araya getiren bir aile işletmesidir.
+            50 yılı aşan saha tecrübemizle bölgenin iklimini, toprağını ve hayvanların
+            ihtiyaçlarını yakından tanıyoruz.
           </p>
 
           <div className="mt-10 flex flex-col gap-8 sm:flex-row">

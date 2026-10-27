@@ -4,19 +4,19 @@ import { Container } from '../components/Container'
 
 const teasers = [
   {
-    title: 'Akıllı Sürü Takibi',
-    image: '/images/agrezen/service-5.webp',
-    to: '/service/dijital-ciftlik-takip-sistemleri',
+    title: 'Büyükbaş Besi Hayvancılığı',
+    image: '/images/agrezen/service-6.webp',
+    to: '/service/buyukbas-besi-hayvanciligi',
   },
   {
-    title: 'Organik Süt Üretimi',
+    title: 'Küçükbaş Hayvan Yetiştiriciliği',
+    image: '/images/agrezen/service-7.webp',
+    to: '/service/kucukbas-hayvan-yetistiriciligi',
+  },
+  {
+    title: 'Topraktan Hayvana Üretim Modelimiz',
     image: '/images/agrezen/service-img-1.webp',
-    to: '/service/organik-sut-et-tedariki',
-  },
-  {
-    title: 'Doğa Dostu Besicilik',
-    image: '/images/agrezen/service-8.webp',
-    to: '/service/cevreci-hayvancilik-uygulamalari',
+    to: '/service/topraktan-hayvana-uretim-modelimiz',
   },
 ]
 

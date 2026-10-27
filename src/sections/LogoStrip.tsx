@@ -1,8 +1,8 @@
 const items = [
-  { label: 'GreenPi Süt', icon: 'leaf' as const },
-  { label: 'SafÇiftlik', icon: 'barn' as const },
-  { label: 'DoğaSürü', icon: 'sprout' as const },
-  { label: 'Besicilik', icon: 'tractor' as const },
+  { label: '50+ Yıl Aile Tecrübesi', icon: 'leaf' as const },
+  { label: 'Büyükbaş Besi Hayvancılığı', icon: 'barn' as const },
+  { label: 'Küçükbaş Hayvan Yetiştiriciliği', icon: 'sprout' as const },
+  { label: 'Kendi Makine Parkımız', icon: 'tractor' as const },
 ]
 
 function StripIcon({ icon }: { icon: 'leaf' | 'barn' | 'sprout' | 'tractor' }) {

@@ -8,16 +8,16 @@ interface ServiceListPageProps {
   breadcrumb?: string
 }
 
-export function ServiceListPage({ breadcrumb = 'Hizmetler' }: ServiceListPageProps) {
+export function ServiceListPage({ breadcrumb = 'Faaliyet Alanlarımız' }: ServiceListPageProps) {
   return (
     <div>
-      <PageHeader title="Hizmetlerimiz" breadcrumb={breadcrumb} />
+      <PageHeader title="Faaliyet Alanlarımız" breadcrumb={breadcrumb} />
       <section className="py-20">
         <Container>
           <ServicesGrid services={services} />
         </Container>
       </section>
-      <CTA title="Size Özel Bir Çözüm Planı İçin" description="Uzman ekibimizle görüşün." />
+      <CTA title="Faaliyetlerimiz Hakkında Bilgi Almak İster Misiniz?" description="Bizimle iletişime geçin." />
     </div>
   )
 }

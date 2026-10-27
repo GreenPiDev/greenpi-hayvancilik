@@ -3,13 +3,13 @@ import { Button } from '../components/Button'
 import { Container } from '../components/Container'
 
 const steps = [
-  { number: '01', title: 'Veri Odaklı Yönetim', description: 'Sensör ve takip sistemleriyle sürü verilerini anlık izliyoruz.' },
-  { number: '02', title: 'Sağlıklı Beslenme', description: 'Dengeli yem formülasyonlarıyla doğal büyümeyi destekliyoruz.' },
+  { number: '01', title: 'Toprağın Hazırlanması', description: 'Üretim sürecimiz toprağın hazırlanması ve yem bitkilerinin ekilmesiyle başlar.' },
+  { number: '02', title: 'Hasat ve Depolama', description: 'Yetiştirilen mahsuller uygun zamanda hasat edilir, taşınır ve doğru koşullarda depolanır.' },
 ]
 
 const stepsRight = [
-  { number: '03', title: 'Doğal Mera Döngüsü', description: 'Rotasyonlu otlatmayla toprağın ve sürünün dengesini koruyoruz.' },
-  { number: '04', title: 'Kalite Kontrolü', description: 'Her partiyi gıda güvenliği standartlarına göre denetliyoruz.' },
+  { number: '03', title: 'Gruplandırma', description: 'Hayvanlarımız tür, ırk, yaş, canlı ağırlık ve gelişim durumlarına göre gruplandırılır.' },
+  { number: '04', title: 'Besleme ve Takip', description: 'Besleme, barınma ve bakım programları bu değerlendirmelere göre planlanıp günlük takip edilir.' },
 ]
 
 export function ProcessWheel() {
@@ -30,7 +30,7 @@ export function ProcessWheel() {
             Yaklaşımımız
           </span>
           <h2 className="text-3xl font-semibold leading-tight text-dark md:text-5xl">
-            Meradan Sofraya, Doğal Üretim
+            Topraktan Hayvana Üretim Sürecimiz
           </h2>
         </motion.div>
 

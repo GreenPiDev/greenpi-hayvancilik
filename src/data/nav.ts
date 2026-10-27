@@ -6,7 +6,7 @@ export interface NavItem {
 
 export const mainNav: NavItem[] = [
   { label: 'Hakkımızda', path: '/about-us' },
-  { label: 'Hizmetler', path: '/service/classic-style' },
+  { label: 'Faaliyet Alanlarımız', path: '/service/classic-style' },
   { label: 'Projeler', path: '/portfolio-grid-4' },
   { label: 'Ekibimiz', path: '/team' },
   { label: 'Blog', path: '/blog-grid-overlay' },
@@ -16,7 +16,7 @@ export const mainNav: NavItem[] = [
 
 export const footerNav: NavItem[] = [
   { label: 'Hakkımızda', path: '/about-us' },
-  { label: 'Hizmetler', path: '/service' },
+  { label: 'Faaliyet Alanlarımız', path: '/service' },
   { label: 'Projeler', path: '/portfolio' },
   { label: 'Ekibimiz', path: '/team' },
   { label: 'Blog', path: '/blog' },

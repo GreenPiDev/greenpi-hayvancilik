@@ -28,7 +28,7 @@ export const routes: RouteObject[] = [
       { path: '/team/:slug', element: <TeamDetailPage /> },
 
       { path: '/service', element: <ServiceListPage /> },
-      { path: '/service/classic-style', element: <ServiceListPage breadcrumb="Hizmetler (Klasik)" /> },
+      { path: '/service/classic-style', element: <ServiceListPage breadcrumb="Faaliyet Alanlarımız" /> },
       { path: '/service/:slug', element: <ServiceDetailPage /> },
 
       { path: '/portfolio', element: <PortfolioListPage /> },

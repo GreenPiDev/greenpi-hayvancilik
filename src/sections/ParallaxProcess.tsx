@@ -5,7 +5,7 @@ import { Container } from '../components/Container'
 const steps = [
   { number: '01', label: 'Topraktan Gelen Sağlık' },
   { number: '02', label: 'Sürdürülebilir Büyümeye Kök Salmış' },
-  { number: '03', label: 'Teknolojinin Meralarla Buluşması' },
+  { number: '03', label: 'Kendi Makine Parkımızla Üretim' },
   { number: '04', label: 'Paylaşılan Refahın Çiftlikleri' },
   { number: '05', label: 'Doğal Yollarla Filizlenen Üretim' },
 ]
